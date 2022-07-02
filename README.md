@@ -1,0 +1,9 @@
+# Gore
+
+TODO: shields.io
+
+Leaving all gory details, this is just a bulk rename utility (go rename).
+
+## Installation
+
+## Usage
