@@ -1,0 +1,15 @@
+linters:
+  enable-all: true
+
+  disable:
+    - interfacer
+    - maligned
+    - scopelint
+    - exhaustivestruct
+    - golint
+    - wrapcheck
+    - ireturn
+    - gomnd
+    - gci
+    - exhaustruct
+    - wsl
