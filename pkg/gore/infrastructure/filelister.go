@@ -10,8 +10,7 @@ func NewFileLister() app.FileLister {
 	return &fileLister{}
 }
 
-type fileLister struct {
-}
+type fileLister struct{}
 
 func (l *fileLister) ListFiles(directory string) ([]string, error) {
 	entries, err := os.ReadDir(directory)

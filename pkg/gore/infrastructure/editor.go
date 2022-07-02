@@ -1,7 +1,6 @@
 package infrastructure
 
 import (
-	"errors"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -41,7 +40,7 @@ func (e *editor) EditFilenames(filenames []string) ([]string, error) {
 func (e *editor) getTempFilepath() (string, error) {
 	tempDirectory, found := os.LookupEnv("TEMP")
 	if !found {
-		return "", errors.New("temp directory not found")
+		return "", app.ErrTempDirectoryNotFound
 	}
 
 	tempFileName := e.generateTempFilename()

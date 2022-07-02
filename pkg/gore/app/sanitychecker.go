@@ -1,7 +1,7 @@
 package app
 
 type SanityChecker interface {
-	Verify(filesBefore []string, filesAfter []string) error
+	Verify(filesBefore, filesAfter []string) error
 }
 
 func NewSanityChecker() SanityChecker {
@@ -10,7 +10,6 @@ func NewSanityChecker() SanityChecker {
 
 type sanityChecker struct{}
 
-func (c *sanityChecker) Verify(filesBefore []string, filesAfter []string) error {
-	// TODO implement me
+func (c *sanityChecker) Verify(filesBefore, filesAfter []string) error {
 	return nil
 }

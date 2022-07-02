@@ -42,6 +42,7 @@ func (r *Renamer) renameFiles(directory string, filenames, newFilenames []string
 	for i := 0; i < len(filenames); i++ {
 		path := filepath.Join(directory, filenames[i])
 		newPath := filepath.Join(directory, newFilenames[i])
+
 		err := os.Rename(path, newPath)
 		if err != nil {
 			return err
