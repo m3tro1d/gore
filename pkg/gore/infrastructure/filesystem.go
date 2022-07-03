@@ -14,7 +14,9 @@ func NewFilesystem() app.Filesystem {
 type filesystem struct{}
 
 func (s *filesystem) RenameFiles(directory string, filenames, newFilenames []string) error {
-	for i := 0; i < len(filenames); i++ {
+	min := minLength(filenames, newFilenames)
+
+	for i := 0; i < min; i++ {
 		path := filepath.Join(directory, filenames[i])
 		newPath := filepath.Join(directory, newFilenames[i])
 
@@ -25,4 +27,13 @@ func (s *filesystem) RenameFiles(directory string, filenames, newFilenames []str
 	}
 
 	return nil
+}
+
+func minLength(a, b []string) int {
+	aLength, bLength := len(a), len(b)
+	if aLength < bLength {
+		return aLength
+	}
+
+	return bLength
 }
