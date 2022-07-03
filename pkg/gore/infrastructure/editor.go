@@ -12,11 +12,15 @@ import (
 	"github.com/m3tro1d/gore/pkg/gore/app"
 )
 
-func NewEditor() app.Editor {
-	return &editor{}
+func NewEditor(editorExecutable string) app.Editor {
+	return &editor{
+		editorExecutable: editorExecutable,
+	}
 }
 
-type editor struct{}
+type editor struct {
+	editorExecutable string
+}
 
 func (e *editor) EditFilenames(filenames []string) ([]string, error) {
 	tempFilepath, err := e.getTempFilepath()
@@ -70,7 +74,8 @@ func (e *editor) dumpFilenames(tempFilepath string, filenames []string) error {
 }
 
 func (e *editor) runEditor(tempFilepath string) error {
-	cmd := exec.Command("nvim", tempFilepath)
+	// nolint: gosec
+	cmd := exec.Command(e.editorExecutable, tempFilepath)
 	cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, os.Stderr
 
 	return cmd.Run()
