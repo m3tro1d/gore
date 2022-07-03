@@ -8,6 +8,7 @@ linters:
     - exhaustivestruct
     - golint
     - wrapcheck
+    - testpackage
     - ireturn
     - gomnd
     - gci
