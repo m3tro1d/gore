@@ -9,7 +9,7 @@ import (
 const (
 	programName    = "gore"
 	programUsage   = "bulk rename utility"
-	programVersion = "v0.2.0"
+	programVersion = "v0.2.1"
 
 	versionFlag      = "version"
 	versionFlagAlias = "v"
