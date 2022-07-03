@@ -61,6 +61,7 @@ func (e *editor) dumpFilenames(tempFilepath string, filenames []string) error {
 	if err != nil {
 		return err
 	}
+	//goland:noinspection GoUnhandledErrorResult
 	defer file.Close()
 
 	for _, filename := range filenames {
